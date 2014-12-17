@@ -29,12 +29,13 @@ namespace WeChat
             //试用版本微信企业号：corpid=wx0beba9277d2499d0&corpsecret=T1XBGAti9ycGk2Isc6r1ThMMH2MB-cVEC5WCTd3PocLLds7uPqLKrADGsxwjGW1N
             string uri = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=" + corpid + "&corpsecret=" + corpsecret;
             HttpUtil http = new HttpUtil();
-            string res = http.SendGet(uri);
+            WeChatUtil util = new WeChatUtil();
+            string res = util.GetToken(corpid, corpsecret);
 
             AccessToken at = JsonConvert.DeserializeObject<AccessToken>(res);
             if (!String.IsNullOrEmpty(at.access_token))
             {
-                //TODO:将accesstoken存入数据库，同团队关联
+                //TODO:将corpid和corpsecret存入数据库，同团队关联（access_token会过期，过期后需要重新取）
                 return "Success";
             }
             else
@@ -51,7 +52,7 @@ namespace WeChat
         /// <returns></returns>
         public int SyncMember(string teamId)
         {
-            //在第一步中已经将团队id同企业的accesstoken绑定，需要拿到teamId去数据库中寻找
+            //在第一步中已经将团队id同企业的corpId和secret绑定，需要拿到teamId去数据库中寻找
 
             string access_token = "";
             access_token = "ph7y-PEr9def-ZRt41gWTFTk6QGXV5iCEMIHbcV3DOc";

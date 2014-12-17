@@ -160,6 +160,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VacationController.cs" />
     <Compile Include="Controllers\WeChatController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -170,10 +171,14 @@
     <Compile Include="Startup.cs" />
     <Compile Include="WeChatLib\AccessToken.cs" />
     <Compile Include="WeChatLib\AccessTokenError.cs" />
+    <Compile Include="WeChatLib\Cryptography.cs" />
     <Compile Include="WeChatLib\DepartMems.cs" />
     <Compile Include="WeChatLib\HttpUtil.cs" />
+    <Compile Include="WeChatLib\Sample.cs" />
     <Compile Include="WeChatLib\TextMessage.cs" />
     <Compile Include="WeChatLib\UserInfo.cs" />
+    <Compile Include="WeChatLib\WeChatUtil.cs" />
+    <Compile Include="WeChatLib\WXBizMsgCrypt.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -225,6 +230,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\WeChat\WeChat.cshtml" />
+    <Content Include="Views\Vacation\Vacation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
